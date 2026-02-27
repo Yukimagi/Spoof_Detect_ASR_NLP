@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SafeTalk Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dash-body">
+  <header class="dash-top">
+    <div class="dash-title">SafeTalk 通報後台</div>
+    <div class="dash-actions">
+      <input id="dashSearch" class="dash-search" placeholder="搜尋：userId / 類型 / 內容關鍵字">
+      <select id="dashFilter" class="dash-filter">
+        <option value="all">全部</option>
+        <option value="chat">聊天分析</option>
+        <option value="photo">照片</option>
+        <option value="link">連結</option>
+        <option value="qr">QR</option>
+      </select>
+      <select id="dashRisk" class="dash-filter">
+        <option value="all">全部風險</option>
+        <option value="high">高</option>
+        <option value="med">中</option>
+        <option value="low">低</option>
+      </select>
+      <button id="dashClear" class="sec">清空本機列表</button>
+    </div>
+  </header>
+
+  <main class="dash-main">
+    <section class="dash-list">
+      <div class="dash-list-head">
+        <div class="muted">即時接收使用者通報（透過同一個 ws relay）</div>
+        <div id="dashConn" class="dash-pill">未連線</div>
+      </div>
+      <div id="dashItems" class="dash-items"></div>
+    </section>
+
+    <section class="dash-detail">
+      <div class="dash-detail-head">
+        <div class="dash-detail-title">詳細內容</div>
+      </div>
+      <div id="dashDetail" class="dash-detail-body">
+        <div class="muted">點左側一筆通報即可查看。</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
