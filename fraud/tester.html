@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tester - SafeTalk</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-frame">
+    <header class="app-topbar">
+      <div class="title">LINE</div>
+      <div class="right-actions kebab" title="更多">⋮</div>
+    </header>
+    <main class="app-main">
+      <div id="chatArea" class="chat-area"></div>
+      <div class="chat-input">
+        <input id="chatInput" placeholder="輸入訊息..." />
+        <button id="sendBtn">送出</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- 監控外掛（可拖曳，僅 tester 有） -->
+  <div id="plugin" class="plugin">
+    <div id="pluginHandle" class="plugin-handle" title="按住拖曳移動">
+      <div class="dot"></div><div class="label">監控外掛</div>
+      <div id="pluginBadge" class="badge low">LOW</div>
+      <button id="pluginToggle" class="minbtn">▢</button>
+    </div>
+    <div class="plugin-panel">
+      <div class="plugin-section">
+        <button id="pluginAnalyze" class="primary">分析當前對話</button>
+        <button id="pluginRedact" class="sec">去識別化</button>
+        <button id="pluginRestore" class="sec">還原</button>
+      </div>
+      <div class="plugin-section small">
+        <div id="pluginStatus">尚未分析</div>
+        <div class="pbar"><div id="pluginFill" class="pfill"></div></div>
+      </div>
+      <div class="plugin-section">
+        <label>分區：</label>
+        <select id="regionSelect">
+          <option value="全國">全國</option>
+          <option value="東區">新竹市東區</option>
+          <option value="北區">新竹市北區</option>
+          <option value="香山區">新竹市香山區</option>
+        </select>
+      </div>
+      <div class="plugin-section logs" id="pluginLogs">結果顯示在這裡</div>
+      <div class="plugin-section">
+        <button id="openEC" class="primary">編輯緊急聯絡人</button>
+      </div>
+    </div>
+  </div>
+  <button id="pluginFab" class="plugin-fab" aria-label="開啟監控">🛡️</button>
+
+
+  <!-- 緊急聯絡人設定 -->
+  <!-- 防詐宣導圖片 / 影片 -->
+  <div id="eduOverlay" class="edu-overlay" aria-hidden="true">
+    <div class="edu-modal" role="dialog" aria-label="反詐騙提醒">
+      <button id="eduClose" class="edu-close" aria-label="關閉">✕</button>
+      <h3 class="edu-title">注意：請先冷靜，勿急著匯款或提供個資</h3>
+      <img id="eduImg" class="edu-img" src="spoof_ad.jpg" alt="反詐騙宣導圖片">
+      <p class="edu-note">
+        若懷疑遭遇詐騙，可撥打 165 反詐騙專線，或先聯絡家人、朋友再次確認。
+      </p>
+    </div>
+  </div>
+
+  <!-- 緊急聯絡人設定 -->
+  <div id="ecOverlay" class="ec-overlay" aria-hidden="true">
+    <div class="ec-modal" role="dialog" aria-labelledby="ecTitle">
+      <div class="ec-header">
+        <h2 id="ecTitle">啟動設定：緊急聯絡人</h2>
+        <p class="ec-sub">偵測到高風險時，將依所選分區顯示通知名單（僅儲存在本機）。</p>
+      </div>
+      <div class="ec-body">
+        <div class="ec-form">
+          <input id="ecName" placeholder="姓名 (選填)">
+          <input id="ecPhone" placeholder="電話 (09xx-xxx-xxx 或 110)">
+          <input id="ecRegion" placeholder="地區 (全國/東區/北區/香山區)">
+          <button id="ecAdd" class="primary">新增聯絡人</button>
+          <hr>
+          <button id="ecPreset" class="sec">載入預設單位</button>
+        </div>
+        <div>
+          <h3>已加入</h3>
+          <ul id="ecList" class="ec-list"></ul>
+        </div>
+      </div>
+      <div class="ec-footer">
+        <label class="ec-check">
+          <input id="ecAutoNotify" type="checkbox" checked> 高風險時自動顯示通知
+        </label>
+        <div class="ec-actions">
+          <button id="ecSkip" class="sec">稍後</button>
+          <button id="ecSave" class="primary">完成</button>
+        </div>
+      </div>
+      <p class="ec-note">資料僅存本機 localStorage，不上傳。</p>
+    </div>
+  </div>
+
+
+  <script src="tester.js"></script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>User Testing_DeepFake偽造語音檢測</title>
+        <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <!--<link href="css/styles.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <link rel="stylesheet" href="../static/body.css">
+        <link rel="stylesheet" href="../static/header.css">
+        
+        <!-- <link rel="stylesheet" href="../static/nav.css"> -->
+        <link rel="stylesheet" href="../static/buttom.css">
+        
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">DeepFake偽造語音檢測</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./project_sample.html">Project Sample</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./user_testing.html">Select File</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./recording.html">Recording</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../static/assets/img/recording.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>DeepFake偽造語音檢測</h1>
+                            <h2 class="subheading">錄音測試-Recording Testing</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="post.htnl">DeepFake Voice Team</a>
+                                on May 13, 2024
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="a1">
+                            <div class="a2">
+                                <button id="startButton" class="a4">開始錄製</button>
+                            </div>
+                            <div class="a2">
+                                <button onclick="submit1()" class="a4">開始偵測</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <canvas id="waveform" width="600" height="200"></canvas>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; DeepFake偽造語音檢測 2024</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            //錄製音訊
+            const recordAudio = () => {
+                return new Promise(resolve => {
+                    navigator.mediaDevices.getUserMedia({
+                        audio: {
+                            sampleRate: 48000, // 頻率
+                            channelCount: 2, // 左右聲道
+                            volume: 1.0 // 正常音量
+                        }
+                    }).then(stream => {
+                        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                        const mediaNode = audioContext.createMediaStreamSource(stream);
+                        const jsNode = createJSNode(audioContext);
+
+                        const audioChunks = [];
+                        const canvas = document.getElementById('waveform');
+                        const ctx = canvas.getContext('2d');
+                        const width = canvas.width;
+                        const height = canvas.height;
+                        const amp = height / 2;
+                        
+                        // 保存累積音頻數據
+                        let cumulativeData = [];
+
+                        // 將音訊切小塊並交錯
+                        jsNode.onaudioprocess = (event) => {
+                            const audioBuffer = event.inputBuffer;
+                            const leftChannelData = audioBuffer.getChannelData(0);
+                            const rightChannelData = audioBuffer.getChannelData(1);
+
+                            // 左右聲道合併
+                            const allData = interleaveLeftAndRight(leftChannelData, rightChannelData);
+                            audioChunks.push(...allData);
+                            // 更新累積數據
+                            cumulativeData.push(...allData);
+                            // 繪製當前數據的波形
+                            drawWaveform(cumulativeData);
+                        };
+
+                        const start = () => {
+                            jsNode.connect(audioContext.destination);
+                            mediaNode.connect(jsNode);
+                        };
+
+                        const stop = () => {
+                            return new Promise(resolve => {
+                                jsNode.disconnect();
+                                mediaNode.disconnect();
+                                
+
+                                // WAV
+                                const wavBuffer = createWavFile(audioChunks);
+                                const audioBlob = new Blob([new Uint8Array(wavBuffer)], { type: 'audio/wav' });
+                                const audioUrl = URL.createObjectURL(audioBlob);
+                                const audio = new Audio(audioUrl);
+
+                                // 上傳檔案
+                                const formData = new FormData();
+                                formData.append('file', audioBlob, 'check.wav');
+
+                                fetch('/upload2', {
+                                    method: 'POST',
+                                    body: formData
+                                }).then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
+                                    return response.text();
+                                }).then(text => {
+                                    console.log('File uploaded successfully:', text);
+                                }).catch(error => {
+                                    console.error('There has been a problem with your fetch operation:', error);
+                                });
+
+                                resolve({ audioBlob, audioUrl, play: () => audio.play() });
+                            });
+                        };
+
+                        resolve({ start, stop });
+                    });
+                });
+            };
+
+            function createJSNode(audioContext) {
+                const BUFFER_SIZE = 4096;
+                const INPUT_CHANNEL_COUNT = 2;
+                const OUTPUT_CHANNEL_COUNT = 2;
+
+                const creator = audioContext.createScriptProcessor || audioContext.createJavaScriptNode;
+                return creator.call(audioContext, BUFFER_SIZE, INPUT_CHANNEL_COUNT, OUTPUT_CHANNEL_COUNT);
+            }
+
+            function interleaveLeftAndRight(left, right) {
+                const totalLength = left.length + right.length;
+                const data = new Float32Array(totalLength);
+
+                for (let i = 0; i < left.length; i++) {
+                    const k = i * 2;
+                    data[k] = left[i];
+                    data[k + 1] = right[i];
+                }
+
+                return data;
+            }
+
+            // 建立 WAV
+            function createWavFile(audioData) {
+                const WAV_HEAD_SIZE = 44;
+                const buffer = new ArrayBuffer(audioData.length * 2 + WAV_HEAD_SIZE);
+                const view = new DataView(buffer);
+
+                // WAV 頭
+                writeUTFBytes(view, 0, 'RIFF');
+                view.setUint32(4, 44 + audioData.length * 2, true);
+                writeUTFBytes(view, 8, 'WAVE');
+                writeUTFBytes(view, 12, 'fmt ');
+                view.setUint32(16, 16, true);
+                view.setUint16(20, 1, true); // PCM format
+                view.setUint16(22, 2, true); // Stereo
+                view.setUint32(24, 48000, true); // Sample rate
+                view.setUint32(28, 48000 * 2 * 2, true); // Byte rate (sampleRate * blockAlign)
+                view.setUint16(32, 2 * 2, true); // Block align (channels * bytes per sample)
+                view.setUint16(34, 16, true); // Bits per sample
+                writeUTFBytes(view, 36, 'data');
+                view.setUint32(40, audioData.length * 2, true);
+
+                // PCM
+                let index = 44;
+                const volume = 1;
+                for (let i = 0; i < audioData.length; i++) {
+                    view.setInt16(index, audioData[i] * (0x7FFF * volume), true);
+                    index += 2;
+                }
+
+                return buffer;
+            }
+
+            function writeUTFBytes(view, offset, string) {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            }
+
+            // 開始錄製按鈕
+            document.getElementById('startButton').addEventListener('click', async () => {
+            const recorder = await recordAudio();
+            recorder.start();
+            document.getElementById('startButton').disabled = true;
+
+            // 設置 6 秒後自動停止錄音
+            setTimeout(async () => {
+                const audio = await recorder.stop();
+                audio.play();
+                document.getElementById('startButton').disabled = false;
+                
+                
+                
+            }, 6000);  // 6000 毫秒 = 6 秒
+            });
+
+            // 繪製聲波圖
+            function drawWaveform(data) {
+                const canvas = document.getElementById('waveform');
+                const ctx = canvas.getContext('2d');
+                const width = canvas.width;
+                const height = canvas.height;
+
+                const step = Math.ceil(data.length / width); // 每步取樣數據數量
+                const barWidth = 4; // 固定每個長條的寬度
+                const visibleBars = Math.floor(width / (barWidth + 2)); // 畫布上可顯示的長條數
+
+                ctx.clearRect(0, 0, width, height); // 清空畫布
+
+                let x = 0; // X 軸起點
+                const startIdx = Math.max(0, data.length - visibleBars * step);
+
+                for (let i = 0; i < visibleBars && startIdx + i * step < data.length; i++) {
+                    // 計算當前長條高度
+                    const segment = data.slice(startIdx + i * step, startIdx + (i + 1) * step);
+                    const barHeight = Math.max(...segment) * height / 2;
+
+                    // 動態顏色
+                    const r = Math.floor(barHeight + 50 * (i / visibleBars));
+                    const g = Math.floor(200 * (i / visibleBars));
+                    const b = 100;
+
+                    ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+
+                    // 在上半部分繪製長條
+                    ctx.fillRect(x, height / 2 - barHeight, barWidth, barHeight);
+                    // 在下半部分繪製長條
+                    ctx.fillRect(x, height / 2, barWidth, barHeight);
+
+                    x += barWidth + 2; // X 軸增量
+                }
+            }
+
+
+            
+            function submit1() {
+                // 紀錄目前頁面
+                localStorage.setItem('previousPage', window.location.href);
+
+                // 傳檔案
+                var filePath = './static/check.wav';
+                window.location.href = 'loading.html?file=' + encodeURIComponent(filePath);
+            }
+        </script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../static/js/scripts.js"></script>
+    </body>
+</html>

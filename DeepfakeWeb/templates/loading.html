@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>檢測中...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #fbc2eb 0%, #a18cd1 100%);
+            font-family: 'Poppins', 'Microsoft JhengHei', sans-serif;
+            color: #333;
+        }
+
+        .loading-container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+        }
+
+        .spinner {
+            margin: 20px auto;
+            width: 80px;
+            height: 80px;
+            border: 10px solid transparent;
+            border-top: 10px solid #42a5f5;
+            border-right: 10px solid #66bb6a;
+            border-bottom: 10px solid #ef5350;
+            border-left: 10px solid #ffa726;
+            border-radius: 50%;
+            animation: spin 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <p>正在檢測聲音，請稍候...</p>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        window.onload = function() {
+            // 拿檔案
+            var urlParams = new URLSearchParams(window.location.search);
+            var file = urlParams.get('file');
+            // 音檔辨識
+            $.ajax({
+                url: "submit",
+                type: "GET",
+                data: { path: file },
+                success: function(result) {
+                    if (result.message === "success!") {
+                        alert("這個聲音是 " + result.rest);
+                    } else {
+                        alert(result.message);
+                    }
+                    // 返回上一頁
+                    var previousPage = localStorage.getItem('previousPage');
+                    window.location.href = previousPage;
+                }
+            });
+        };
+    </script>
+</body>
+</html>

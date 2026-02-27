@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Deep Fake 偽造語音檢測</title>
+    <link rel="stylesheet" href="../static/body.css">
+    <link rel="stylesheet" href="../static/header.css">
+    <link rel="stylesheet" href="../static/footer.css">
+    <link rel="stylesheet" href="../static/nav.css">
+    <link rel="stylesheet" href="../static/buttom.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>DeepFake偽造語音檢測</h1>
+        </header>
+        <nav>
+            <ul class="flex-nav">
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="./project.html">Projects</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+        </nav>
+        <div>
+            <h1>真假音辨識</h1>
+            <div class="a1">
+                <div class="a2">
+                    <audio controls>
+                        <source src="../static/truevoice.mp3">
+                    </audio>
+                    <div class="a3"> 
+                        <button onclick="submit1()" class="a4">聲音1</button>
+                    </div>
+                </div>
+                <div class="a2">
+                    <audio controls>
+                        <source src="../static/fakevoice.mp3">
+                    </audio>
+                    <div class="a3"> 
+                        <button onclick="submit2()" class="a4">聲音2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p class="copyright">&copy; Copyright 2024</p>
+    </footer>
+    <script>
+        function submit1() {
+            $.ajax({
+                url: "submit",
+                type: "GET",
+                data: { path: "./static/真音.flac" },
+                success: function(result) {
+                    if (result.message == "success!") {
+                        alert("這個聲音是" + result.rest);
+                    } else {
+                        alert(result.message);
+                    }
+                }
+            });
+        }
+    
+        function submit2() {
+            $.ajax({
+                url: "submit",
+                type: "GET",
+                data: { path: "./static/假音.flac" },
+                success: function(result) {
+                    if (result.message == "success!") {
+                        alert("這個聲音是" + result.rest);
+                    } else {
+                        alert(result.message);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
